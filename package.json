@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-v1",
+  "name": "starter-kit-v2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.6.1",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.42.1",
+    "@next/third-parties": "^16.2.9",
     "gsap": "^3.15.0",
-    "lucide-react": "^1.22.0",
     "next": "16.2.9",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "tailwind-merge": "^3.6.0"
+    "resend": "^6.16.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
