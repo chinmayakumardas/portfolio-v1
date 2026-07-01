@@ -1,104 +1,36 @@
-
-
-
-
-
-
 import Link from "next/link";
-
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-background text-black overflow-hidden px-4 pt-4">
-    
-  
-      <div
-        className="
-          relative isolate overflow-hidden
-          min-h-[calc(100vh-2rem)]
-          w-full rounded-[12px]
-        "
-        style={{
-          background: `
-            radial-gradient(
-              circle at center,
-              rgba(80,160,255,0.16) 0%,
-              transparent 40%
-            ),
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 text-center">
+      {/* Background */}
+      <span className="pointer-events-none absolute inset-0 flex select-none items-center justify-center text-[40vw] font-black leading-none text-foreground/5">
+        404
+      </span>
 
-            radial-gradient(
-              circle at top,
-              rgba(0,119,255,0.12) 0%,
-              transparent 45%
-            ),
+      <div className="relative z-10 max-w-xl">
+        <span className="inline-flex rounded-full border border-border bg-background px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+          Error 404
+        </span>
 
-            linear-gradient(
-              180deg,
-              #0e71bd 0%,
-              #0059df 18%,
-              #0047b3 38%,
-              #001a4d 58%,
-              #000814 78%,
-              #000000 100%
-            )
-          `,
-        }}
-      >
-        {/* glow */}
-        <div
-          className="
-            pointer-events-none
-            absolute left-1/2 top-1/2 z-0
-            h-[360px] w-[360px]
-            -translate-x-1/2 -translate-y-1/2
-            rounded-full
-            bg-blue-400/10
-            blur-[120px]
-          "
-        />
+        <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl">
+          Page Not Found
+        </h1>
 
-        {/* vignette */}
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.45)_100%)]" />
+        <p className="mx-auto mt-4 max-w-md text-lg text-muted-foreground">
+          Sorry, the page you&apos;re looking for doesn&apos;t exist, may have been moved,
+          or the URL is incorrect.
+        </p>
 
-        {/* CONTENT */}
-
-
-<div className="relative z-10 flex min-h-[calc(100vh-2rem)] flex-col items-center justify-center overflow-hidden px-6 text-center text-white">
-
-  {/* big background number */}
-  <p className="pointer-events-none absolute inset-0 flex select-none items-center justify-center font-black text-[40vw] text-white/5 leading-none">
-    404
-  </p>
-
-  {/* single content block */}
-  <div className="relative z-10 max-w-md">
-    <p className="text-xl font-medium leading-snug text-white/90">
-      The page you’re looking for doesn’t exist or has been moved elsewhere.
-    </p>
-
-    {/* buttons */}
-    <div className="mt-8 flex justify-center gap-3">
-      <Link
-        href="/"
-        className="rounded-lg bg-white px-5 py-2 text-sm font-medium text-black transition hover:scale-105"
-      >
-        Go back
-      </Link>
-
-      <Link
-        href="/contact"
-        className="rounded-lg border border-white/30 px-5 py-2 text-sm font-medium text-white/90 backdrop-blur-md transition hover:scale-105"
-      >
-        Contact
-      </Link>
-    </div>
-  </div>
-
-</div>
+        <div className="mt-10">
+          <Link
+            href="/"
+            className="inline-flex h-11 items-center justify-center rounded-lg bg-foreground px-6 text-sm font-medium text-background transition-colors hover:opacity-90"
+          >
+            Back to Home
+          </Link>
+        </div>
       </div>
-    
-   
-    </main>
+    </div>
   );
 }
-

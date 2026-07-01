@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { LenisProvider } from "@/components/providers/lenis-provider";
+import { personSchema, websiteSchema } from "@/lib/schema";
 import "./globals.css";
+import { SiteLayout } from "@/components/layout/site-layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,14 +21,16 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "Chinmaya Kumar Das | AI Engineer • Full Stack Developer • Product Engineer",
+      "Chinmaya Kumar Das | • Full Stack Developer • Product Engineer",
     template: "%s | Chinmaya Kumar Das",
   },
 
   description:
-    "Chinmaya Kumar Das is an AI Engineer and Full Stack Developer specializing in AI-powered applications, modern SaaS products, scalable web platforms, automation systems, cloud-native solutions, and exceptional user experiences. Available for full-time opportunities, freelance projects, startup consulting, and technical collaborations worldwide.",
+    "Chinmaya Kumar Das is an AI Engineer and Full Stack Developer specializing in AI-powered applications, modern web experiences, scalable software, automation systems, and high-performance digital products. Available for full-time opportunities, freelance projects, startup consulting, and technical collaborations worldwide.",
 
   applicationName: "Chinmaya Kumar Das",
+
+  referrer: "origin-when-cross-origin",
 
   authors: [
     {
@@ -35,7 +40,10 @@ export const metadata: Metadata = {
   ],
 
   creator: "Chinmaya Kumar Das",
+
   publisher: "Chinmaya Kumar Das",
+
+  category: "Technology",
 
   keywords: [
     "Chinmaya Kumar Das",
@@ -43,46 +51,24 @@ export const metadata: Metadata = {
     "Software Engineer",
     "Full Stack Developer",
     "Product Engineer",
-    "SaaS Developer",
     "Frontend Developer",
-    "Backend Developer",
-    "React",
+    "Web Developer",
+    "Creative Developer",
     "Next.js",
+    "React",
     "TypeScript",
     "JavaScript",
-    "Node.js",
-    "Express.js",
-    "NestJS",
-    "Python",
-    "FastAPI",
-    "MongoDB",
-    "PostgreSQL",
-    "Prisma",
     "Tailwind CSS",
-    "Docker",
-    "AWS",
-    "Firebase",
-    "Supabase",
-    "OpenAI",
-    "Claude AI",
-    "Gemini AI",
-    "Generative AI",
-    "LLM",
-    "AI Agents",
-    "LangChain",
-    "RAG",
-    "Automation",
+    "GSAP",
+    "Framer Motion",
+    "React Three Fiber",
+    "Three.js",
+    "Node.js",
     "REST API",
-    "GraphQL",
-    "Cloud",
     "Portfolio",
     "Freelancer",
-    "Remote Developer",
     "Technical Consultant",
-    "Web Developer",
   ],
-
-  category: "Technology",
 
   robots: {
     index: true,
@@ -109,10 +95,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://chinmayakumardas.com",
     siteName: "Chinmaya Kumar Das",
+
     title:
       "Chinmaya Kumar Das | AI Engineer • Full Stack Developer • Product Engineer",
+
     description:
-      "Building AI-powered applications, scalable SaaS products, automation systems, cloud-native platforms, and modern digital experiences.",
+      "Building AI-powered applications, scalable web platforms, automation systems, and modern digital experiences.",
+
     images: [
       {
         url: "/og-image.png",
@@ -125,11 +114,15 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
+
     creator: "@chinmayakmdas",
+
     title:
       "Chinmaya Kumar Das | AI Engineer • Full Stack Developer • Product Engineer",
+
     description:
-      "AI Engineer • Full Stack Developer • SaaS Builder • Product Engineer",
+      "AI Engineer • Full Stack Developer • Product Engineer",
+
     images: ["/og-image.png"],
   },
 
@@ -160,7 +153,24 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(personSchema),
+            }}
+          />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        <LenisProvider>
+            <SiteLayout>
+    {children}
+  </SiteLayout>
+          </LenisProvider>
 
         <GoogleAnalytics gaId="G-5DJS4H3VT4" />
       </body>
