@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { Header } from "./header";
-import { Footer } from "./footer";
+import  Header  from "./header";
+import Footer  from "./footer";
 
 type SiteLayoutProps = {
   children: ReactNode;
